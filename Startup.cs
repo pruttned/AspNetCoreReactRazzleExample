@@ -1,3 +1,4 @@
+using AspNetCoreRazzleExample.Services;
 using Jering.Javascript.NodeJS;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +36,8 @@ namespace AspNetCoreReactRazzleExample
             {
                 configuration.RootPath = _env.IsDevelopment() ? "ClientApp/build" : "ClientApp/build/public";
             });
+
+            services.AddSingleton<IRenderService, RenderService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +64,7 @@ namespace AspNetCoreReactRazzleExample
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
