@@ -6,8 +6,8 @@ module.exports = {
         }
         if (target === 'web' && dev) {
             config.devServer.https = true;
-            config.devServer.pfx = '...';
-            config.devServer.pfxPassphrase = '...';
+            config.devServer.pfx = process.env.RAZZLE_PFX;
+            config.devServer.pfxPassphrase = process.env.RAZZLE_PFX_PASSPHRASE;
             config.output.publicPath=`https://${config.devServer.host}:${config.devServer.port}/`
         }
 
