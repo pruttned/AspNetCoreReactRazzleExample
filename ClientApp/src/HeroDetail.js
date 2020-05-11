@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const HouseDetail = () => (
+const HeroDetail = () => (
   <div>
-    <h2>House ...</h2>
+    <h2>Hero ...</h2>
     <div>
       <Link to="/">Back to list</Link>
     </div>
     <div>
-      TODO: house detail
+      TODO: Hero detail
         </div>
   </div>
 );
 
-export default HouseDetail;
+export default HeroDetail;

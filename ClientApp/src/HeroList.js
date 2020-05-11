@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const HouseList = () => (
+const HeroList = () => (
   <div>
-    <h2>List of Ice And Fire houses</h2>
+    <h2>List of heroes</h2>
     <div>
-      TODO: list of houses
+      TODO: list 
           <ul>
         <li>
-          <Link to="/1">House</Link>
+          <Link to="/1">Hero</Link>
         </li>
       </ul>
     </div>
   </div>
 );
 
-export default HouseList;
+export default HeroList;
