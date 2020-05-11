@@ -13,15 +13,6 @@ namespace RazorApp.Controllers
 {
     public class HeroController : Controller
     {
-        private readonly ILogger<HeroController> _logger;
-        private readonly IRenderService _renderService;
-
-        public HeroController(ILogger<HeroController> logger, IRenderService renderService)
-        {
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _renderService = renderService ?? throw new ArgumentNullException(nameof(renderService));
-        }
-
         [Route("/")]
         public IActionResult Index()
         {
