@@ -38,6 +38,7 @@ namespace AspNetCoreReactRazzleExample
             });
 
             services.AddSingleton<IRenderService, RenderService>();
+            services.AddSingleton<IHeroDb, HeroDb>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

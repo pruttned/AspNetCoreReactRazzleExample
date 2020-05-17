@@ -13,16 +13,23 @@ namespace RazorApp.Controllers
 {
     public class HeroController : Controller
     {
-        [Route("/")]
-        public IActionResult Index()
+        private IHeroDb _db;
+
+        public HeroController(IHeroDb db)
         {
-            return new SsrResult("/");
+            _db = db ?? throw new ArgumentNullException(nameof(db));
         }
 
+        [Route("/")]
+        public IActionResult Index() => new SsrResult("/");
+
+        [Route("data/")]
+        public IActionResult IndexData() => Ok(_db.GetAll());
+
         [Route("/{id:int}")]
-        public IActionResult Detail(int id)
-        {
-            return new SsrResult("/:id");
-        }
+        public IActionResult Detail(int id) => new SsrResult("/:id");
+
+        [Route("/data/{id:int}")]
+        public IActionResult DetailData(int id) => Ok(_db.Get(id));
     }
 }
