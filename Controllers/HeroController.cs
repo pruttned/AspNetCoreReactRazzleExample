@@ -21,13 +21,13 @@ namespace RazorApp.Controllers
         }
 
         [Route("/")]
-        public IActionResult Index() => new SsrResult("/");
+        public IActionResult Index() => new SsrResult("/", _db.GetAll());
 
         [Route("data/")]
         public IActionResult IndexData() => Ok(_db.GetAll());
 
         [Route("/{id:int}")]
-        public IActionResult Detail(int id) => new SsrResult("/:id");
+        public IActionResult Detail(int id) => new SsrResult("/:id", _db.Get(id));
 
         [Route("/data/{id:int}")]
         public IActionResult DetailData(int id) => Ok(_db.Get(id));

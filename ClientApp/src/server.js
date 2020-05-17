@@ -5,8 +5,8 @@ import { renderToString } from 'react-dom/server';
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
-const server = (cb, url) => {
-  const context = {};
+const server = (cb, url, data) => {
+  const context = { data };
   const markup = renderToString(
     <StaticRouter context={context} location={url}>
       <App />
@@ -20,6 +20,7 @@ const server = (cb, url) => {
           <meta charset="utf-8" />
           <title>Welcome to Razzle</title>
           <meta name="viewport" content="width=device-width, initial-scale=1">
+          <script>window.__ROUTE_DATA__=${JSON.stringify(data)}</script>
           ${assets.client.css
       ? `<link rel="stylesheet" href="${assets.client.css}">`
       : ''} 

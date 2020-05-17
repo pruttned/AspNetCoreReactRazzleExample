@@ -7,7 +7,7 @@ namespace AspNetCoreRazzleExample.Services
 {
     public interface IRenderService
     {
-        Task<string> RenderAsync(string url);
+        Task<string> RenderAsync(string url, object data);
     }
 
     public class RenderService : IRenderService
@@ -22,11 +22,11 @@ namespace AspNetCoreRazzleExample.Services
             _nodeJSService = nodeJSService ?? throw new System.ArgumentNullException(nameof(nodeJSService));
             _serverJsPath = webHostEnvironment.ContentRootFileProvider.GetFileInfo(ServerJsRelPath).PhysicalPath;
         }
-        public Task<string> RenderAsync(string url)
+        public Task<string> RenderAsync(string url, object data)
         {
             if (string.IsNullOrWhiteSpace(url)) throw new System.ArgumentException($"{nameof(url)} must not be null or empty", nameof(url));
 
-            return _nodeJSService.InvokeFromFileAsync<string>(_serverJsPath, args: new object[] { url });
+            return _nodeJSService.InvokeFromFileAsync<string>(_serverJsPath, args: new object[] { url, data });
         }
     }
 }
