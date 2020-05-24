@@ -11,12 +11,10 @@ const page = (WrappedComponent) =>
       window.__ROUTE_DATA__ = null; // We need to clear __ROUTE_DATA__, so they are not going to be used for another page during client side routing
     }
     const [pageData, setPageData] = useState(initData);
-    if (!pageData) {
-      if (!staticContext) {
-        fetch(`data${location.pathname}`)
-          .then(r => r.json())
-          .then(setPageData);
-      }
+    if (!pageData && !staticContext) {
+      fetch(`data${location.pathname}`)
+        .then(r => r.json())
+        .then(setPageData);
     }
     return (
       pageData && <WrappedComponent pageData={pageData}></WrappedComponent>
