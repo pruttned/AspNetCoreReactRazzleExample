@@ -8,9 +8,9 @@ const page = (WrappedComponent) =>
     let initData = null;
     if (staticContext) {
       initData = staticContext.data;
-    } else if (window.__ROUTE_DATA__) {// We need this so the HTML after hydrate is going to match the server side rendered HTML
+    } else if (window.__ROUTE_DATA__) {
       initData = window.__ROUTE_DATA__;
-      window.__ROUTE_DATA__ = null; // We need to clear __ROUTE_DATA__, so they are not going to be used for another page during client side routing
+      delete window.__ROUTE_DATA__;
     }
 
     if (!staticContext && !initData) {
