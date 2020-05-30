@@ -1,3 +1,4 @@
+const nodeExternals = require('webpack-node-externals');
 module.exports = {
     modify: (config, { target, dev }, webpack) => {
         if (dev) {
@@ -11,6 +12,10 @@ module.exports = {
                 config.devServer.pfxPassphrase = process.env.RAZZLE_PFX_PASSPHRASE;
             }
             config.output.publicPath = config.output.publicPath.replace('http://', 'https://');
+        } else {
+            if (target === 'node') {
+                config.externals = [];
+            }
         }
 
         return config;
