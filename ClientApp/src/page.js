@@ -13,11 +13,13 @@ const page = (WrappedComponent) =>
       delete window.__ROUTE_DATA__;
     }
 
-    if (!staticContext && !initData) {
+    if (!staticContext) {
       useEffect(() => {
-        fetch(`data${location.pathname}`)
-          .then(r => r.json())
-          .then(setPageData);
+        if (!initData) {
+          fetch(`data${location.pathname}`)
+            .then(r => r.json())
+            .then(setPageData);
+        }
       }, [location]);
     }
 
