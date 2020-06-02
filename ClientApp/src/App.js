@@ -1,9 +1,11 @@
 import React from 'react';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
+import loadable from '@loadable/component'
 import './App.css';
-import HeroList from './HeroList';
-import HeroDetail from './HeroDetail';
+
+const HeroList = loadable(() => import('./HeroList'))
+const HeroDetail = loadable(() => import('./HeroDetail'))
 
 const App = () => (
   <Switch>

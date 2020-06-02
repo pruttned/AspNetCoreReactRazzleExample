@@ -1,4 +1,6 @@
-const nodeExternals = require('webpack-node-externals');
+const path = require('path');
+const LoadableWebpackPlugin = require("@loadable/webpack-plugin");
+
 module.exports = {
     modify: (config, { target, dev }, webpack) => {
         if (dev) {
@@ -17,6 +19,16 @@ module.exports = {
                 config.externals = [];
             }
         }
+
+        if (target === "web") {
+            const filename = path.resolve(__dirname, "build");
+            config.plugins.push(
+              new LoadableWebpackPlugin({
+                outputAsset: false,
+                writeToDisk: { filename },
+              })
+            );
+          }
 
         return config;
     },
