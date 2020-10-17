@@ -1,0 +1,25 @@
+{
+  "name": "aspnet-core-react-razzle-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd ClientApp && npm start",
+    "server": "dotnet watch run",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pruttned/AspNetCoreReactRazzleExample.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pruttned/AspNetCoreReactRazzleExample/issues"
+  },
+  "homepage": "https://github.com/pruttned/AspNetCoreReactRazzleExample#readme",
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
