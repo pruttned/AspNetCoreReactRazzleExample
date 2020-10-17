@@ -4,7 +4,7 @@ This repository contains code for blog posts [part1](https://nede.dev/blog/integ
 
 # develop
 
-1. Setup SSL dev cert [see](https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.1&tabs=visual-studio#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos)
+1. Setup SSL dev cert. [see here](https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.1&tabs=visual-studio#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos)
 
 2. Go to ClientApp and create file `.env.development.local` based on `.env`
 
