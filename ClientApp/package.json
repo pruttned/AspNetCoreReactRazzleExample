@@ -11,7 +11,7 @@
   "dependencies": {
     "@loadable/component": "^5.12.0",
     "@loadable/server": "^5.12.0",
-    "express": "4.17.1",
+    "express": "4.17.3",
     "razzle": "3.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
